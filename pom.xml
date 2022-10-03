@@ -12,7 +12,7 @@
     <artifactId>jpa_hikari_jdbc_postgres</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>jpa_hikari_jdbc_postgres</name>
-    <description>jpa_hikari_jdbc_postgres</description>
+    <description>JDBC, Rest API, Postgres, MVC</description>
 
     <properties>
         <java.version>11</java.version>

@@ -10,18 +10,18 @@ import javax.persistence.Id;
 @Setter
 @Getter
 @Entity
-public class Produse {
+public class Products {
     @Id
     @Column(name="id_prod",nullable = false,unique = true)
     public Integer idProd; //NUMBER(10) in Oracle
-    @Column(name = "den_prod",length = 50,nullable = false)
+    @Column(name = "prod_name",length = 50,nullable = false)
     public String denProd;
-    @Column(name="id_furnizor",nullable = false)
-    public int idFurnizor;
+    @Column(name="id_supplier",nullable = false)
+    public int idSupplier;
     @Column(length = 20,nullable = false)
-    public String disponibilitate;
+    public String availability;
     @Column(length = 20,nullable = false)
-    public String categorie;
-    @Column(name = "info_supl",length = 100,nullable = true)
-    public String infoSupl;
+    public String category;
+    @Column(name = "add_info",length = 100,nullable = true)
+    public String addInfo;
 }
