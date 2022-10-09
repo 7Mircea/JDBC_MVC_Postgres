@@ -1,6 +1,5 @@
 package com.example.jpa_hikari_jdbc.model;
 
-import lombok.Cleanup;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,16 +13,16 @@ import java.sql.Date;
 @Entity
 public class Item {
     @Id
-    @Column(name = "nr_fact",nullable = false)
-    public int nrFact;
-    @Column(name = "data_fact",nullable = false)
-    public Date dataFact;
+    @Column(name = "invoice_nr",nullable = false)
+    public int invoiceNr;
+    @Column(name = "invoice_date",nullable = false)
+    public Date invoice_date;
     @Column(name = "id_item",nullable = false)
     public int idItem;
     @Column(name="id_prod",nullable = false)
     public int idProd;
-    public String um;
-    public int cantitate;
-    @Column(name = "pret_unitate",nullable = false)
-    public float pretUnitate;
+    public String unit;
+    public int quantity;
+    @Column(name = "unit_price",nullable = false)
+    public float unit_price;
 }
