@@ -1,34 +1,49 @@
 package com.example.jpa_hikari_jdbc.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.IdClass;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Getter
 @Setter
 @Entity
 @IdClass(CharacteristicId.class)
+@AllArgsConstructor
+@NoArgsConstructor
 public class Characteristic {
     @Id
-    @Column(name = "id_prod", nullable = false, unique = true)
-    public int idProd;
+    @ManyToOne
+    @JoinColumn(name = "id_prod", nullable = false, unique = true)
+//    private int idProd;
+    private Products product;
     @Id
     @Column(name = "id_characteristic", nullable = false, unique = true)
-    public int idCharacteristic;
+    private int idCharacteristic;
     @Column(nullable = false)
-    public String name;
+    private String name;
     @Column(nullable = false)
-    public String value;
+    private String value;
+
+
+
+    @Override
+    public String toString() {
+        return new StringBuilder()
+                .append("Characteristic : ")
+                .append(product.getIdProd())
+                .append(',')
+                .append(idCharacteristic)
+                .append(',')
+                .append(name)
+                .append(',')
+                .append(value)
+                .append('\n')
+                .toString();
+    }
 }
 
-class CharacteristicId implements Serializable {
-    @Column(name = "id_prod", nullable = false, unique = true)
-    public int idProd;
-    @Column(name = "id_characteristic", nullable = false, unique = true)
-    public int idCharacteristic;
-}
+

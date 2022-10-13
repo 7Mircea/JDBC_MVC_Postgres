@@ -1,38 +1,53 @@
 package com.example.jpa_hikari_jdbc.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.IdClass;
-import java.io.Serializable;
+import javax.persistence.*;
 import java.sql.Date;
+import java.util.Set;
 
 @Getter
 @Setter
 @Entity
 @IdClass(InvoiceId.class)
+@AllArgsConstructor
+@NoArgsConstructor
 public class Invoice {
     @Id
-    public int nr;
+    private int nr;
     @Id
     @Column(name="invoice_date", nullable = false)
-    public Date invoiceDate;
+    private Date invoiceDate;
     @Column(name="id_vendor",nullable = false)
-    public int idVendor;
-    public char type;
-    public float value;
-    public float vat;
+    private int idVendor;
+    private char type;
+    private float value;
+    private float vat;
     @Column(name="id_employee", nullable = false)
-    public int idEmployee;
+    private int idEmployee;
     @Column(name="id_buyer", nullable = false)
-    public int idBuyer;
+    private int idBuyer;
+
+
+    @ManyToOne
+    private CustomerEmployeeSupplier vendor;
+    @ManyToOne
+    private CustomerEmployeeSupplier buyer;
+    @ManyToOne
+    private CustomerEmployeeSupplier employee;
+
+
+//    @OneToMany(mappedBy = "invoice")
+//    private Set<Item> item;
+
+//    @JoinColumns({
+//            @JoinColumn(name="invoice_nr",referencedColumnName = "invoice_nr"),
+//            @JoinColumn(name="invoice_date",referencedColumnName = "invoice_date")
+//
+//    })
 }
 
-class InvoiceId implements Serializable {
-    public int nr;
-    @Column(name="invoice_date", nullable = false)
-    public Date invoiceDate;
-}
+

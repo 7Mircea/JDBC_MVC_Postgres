@@ -3,9 +3,8 @@ package com.example.jpa_hikari_jdbc.model;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Set;
 
 @Setter
 @Getter
@@ -13,15 +12,20 @@ import javax.persistence.Id;
 public class Products {
     @Id
     @Column(name="id_prod",nullable = false,unique = true)
-    public Integer idProd; //NUMBER(10) in Oracle
+    private Integer idProd; //NUMBER(10) in Oracle
     @Column(name = "prod_name",length = 50,nullable = false)
-    public String denProd;
+    private String prodName;
     @Column(name="id_supplier",nullable = false)
-    public int idSupplier;
+    private int idSupplier;
     @Column(length = 20,nullable = false)
-    public String availability;
+    private String availability;
     @Column(length = 20,nullable = false)
-    public String category;
+    private String category;
     @Column(name = "add_info",length = 100,nullable = true)
-    public String addInfo;
+    private String addInfo;
+
+//    @ManyToMany(mappedBy = "idCES",cascade = CascadeType.ALL)
+//    private Set<CustomerEmployeeSupplier> suppliers;
+//    @OneToMany(mappedBy = "idProd",cascade = CascadeType.ALL,orphanRemoval = true)
+//    private Set<Characteristic> characteristics;
 }

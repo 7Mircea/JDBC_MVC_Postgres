@@ -10,4 +10,5 @@ public class JpaHikariJdbcApplication {
         SpringApplication.run(JpaHikariJdbcApplication.class, args);
     }
 
+
 }
