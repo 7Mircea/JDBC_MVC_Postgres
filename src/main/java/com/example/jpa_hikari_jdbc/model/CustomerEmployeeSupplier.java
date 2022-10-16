@@ -22,7 +22,7 @@ public class CustomerEmployeeSupplier {
     private String name;
     @Column(length = 10)
     private String EIN;
-    @Column(nullable = false)
+    @Column(name="type_ces",nullable = false)
     private char typeCES;
     private String address;
     @Column(nullable = false)

@@ -2,6 +2,7 @@ package com.example.jpa_hikari_jdbc.controller;
 
 import com.example.jpa_hikari_jdbc.model.*;
 import com.example.jpa_hikari_jdbc.repository.*;
+import org.postgresql.core.ConnectionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

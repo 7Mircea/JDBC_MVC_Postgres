@@ -7,7 +7,6 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.sql.Date;
-import java.util.Set;
 
 @Getter
 @Setter
@@ -21,22 +20,25 @@ public class Invoice {
     @Id
     @Column(name="invoice_date", nullable = false)
     private Date invoiceDate;
-    @Column(name="id_vendor",nullable = false)
-    private int idVendor;
+//    @Column(name="id_vendor",nullable = false)
+//    private int idVendor;
     private char type;
     private float value;
     private float vat;
-    @Column(name="id_employee", nullable = false)
-    private int idEmployee;
-    @Column(name="id_buyer", nullable = false)
-    private int idBuyer;
+//    @Column(name="id_employee", nullable = false)
+//    private int idEmployee;
+//    @Column(name="id_buyer", nullable = false)
+//    private int idBuyer;
 
 
     @ManyToOne
+    @JoinColumn(name="id_vendor")
     private CustomerEmployeeSupplier vendor;
     @ManyToOne
+    @JoinColumn(name="id_buyer")
     private CustomerEmployeeSupplier buyer;
     @ManyToOne
+    @JoinColumn(name="id_employee")
     private CustomerEmployeeSupplier employee;
 
 
