@@ -22,8 +22,8 @@ public class Item {
     @ManyToOne
     @Id
     @JoinColumns({
-            @JoinColumn(name = "invoice_nr"),
-            @JoinColumn(name = "invoice_date")
+            @JoinColumn(name = "invoice_nr",referencedColumnName = "nr"),
+            @JoinColumn(name = "invoice_date",referencedColumnName = "invoice_date")
     })
     private Invoice invoice;
 

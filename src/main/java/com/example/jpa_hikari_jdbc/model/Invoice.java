@@ -5,8 +5,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+
 import javax.persistence.*;
-import java.sql.Date;
+import java.time.LocalDate;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -19,7 +21,7 @@ public class Invoice {
     private int nr;
     @Id
     @Column(name="invoice_date", nullable = false)
-    private Date invoiceDate;
+    private LocalDate invoiceDate;
 //    @Column(name="id_vendor",nullable = false)
 //    private int idVendor;
     private char type;

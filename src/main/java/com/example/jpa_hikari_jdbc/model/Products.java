@@ -28,4 +28,10 @@ public class Products {
 //    private Set<CustomerEmployeeSupplier> suppliers;
 //    @OneToMany(mappedBy = "idProd",cascade = CascadeType.ALL,orphanRemoval = true)
 //    private Set<Characteristic> characteristics;
+
+
+    @Override
+    public int hashCode() {
+        return idProd;
+    }
 }
