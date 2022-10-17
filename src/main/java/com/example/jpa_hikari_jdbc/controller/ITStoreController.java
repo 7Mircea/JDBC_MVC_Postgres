@@ -6,6 +6,7 @@ import org.postgresql.core.ConnectionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -39,6 +40,11 @@ public class ITStoreController {
         return customerEmployeeSupplierRepository.findAll();
     }
 
+    @GetMapping("/ces_by_type")
+    public Iterable<CustomerEmployeeSupplier> getCustomerEmployeeSupplierByTypeCES(@RequestParam(name="type", required = true) char type) {
+        return customerEmployeeSupplierRepository.findCustomerEmployeeSupplierByTypeCES(type);
+    }
+
     @GetMapping("/invoices")
     public Iterable<Invoice> getAllInvoices() {
         return invoiceRepository.findAll();
@@ -48,6 +54,5 @@ public class ITStoreController {
     public Iterable<Item> getAllItems() {
         return itemRepository.findAll();
     }
-
 
 }
