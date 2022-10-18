@@ -12,13 +12,6 @@ import java.sql.Date;
 @RequiredArgsConstructor
 @IdClass(ItemId.class)
 public class Item {
-//    @Id
-//    @JoinColumn(name = "invoice_nr", nullable = false,insertable = false, updatable = false)
-//    private int invoiceNr;
-//    @Id
-//    @JoinColumn(name = "invoice_date", nullable = false)
-//    private Date invoice_date;
-
     @ManyToOne
     @Id
     @JoinColumns({

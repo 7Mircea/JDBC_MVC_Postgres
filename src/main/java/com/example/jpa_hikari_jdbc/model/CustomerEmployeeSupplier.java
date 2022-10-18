@@ -31,13 +31,4 @@ public class CustomerEmployeeSupplier {
     @Column(nullable = false)
     private String IBAN;
     private String SSN;
-
-    @ManyToMany(mappedBy = "idSupplier")
-    private Set<Products> products;
-//    @OneToMany(mappedBy = "idVendor")
-//    private Set<Invoice> invoiceVendor;
-//    @OneToMany(mappedBy = "idBuyer")
-//    private Set<Invoice> invoiceBuyer;
-//    @OneToMany(mappedBy = "idEmployee")
-//    private Set<Invoice> invoiceEmployee;
 }

@@ -21,15 +21,9 @@ public class Invoice {
     @Id
     @Column(name="invoice_date", nullable = false)
     private LocalDate invoiceDate;
-//    @Column(name="id_vendor",nullable = false)
-//    private int idVendor;
     private char type;
     private float value;
     private float vat;
-//    @Column(name="id_employee", nullable = false)
-//    private int idEmployee;
-//    @Column(name="id_buyer", nullable = false)
-//    private int idBuyer;
 
 
     @ManyToOne
@@ -41,16 +35,6 @@ public class Invoice {
     @ManyToOne
     @JoinColumn(name="id_employee")
     private CustomerEmployeeSupplier employee;
-
-
-//    @OneToMany(mappedBy = "invoice")
-//    private Set<Item> item;
-
-//    @JoinColumns({
-//            @JoinColumn(name="invoice_nr",referencedColumnName = "invoice_nr"),
-//            @JoinColumn(name="invoice_date",referencedColumnName = "invoice_date")
-//
-//    })
 }
 
 
