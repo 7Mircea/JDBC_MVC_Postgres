@@ -1,14 +1,16 @@
 package com.example.jpa_hikari_jdbc.model;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
+import java.util.Objects;
 import java.util.Set;
 
 @Setter
 @Getter
 @Entity
+@RequiredArgsConstructor
+@AllArgsConstructor
 public class Products {
     @Id
     @Column(name="id_prod",nullable = false,unique = true)
@@ -30,8 +32,19 @@ public class Products {
 //    private Set<Characteristic> characteristics;
 
 
+    public Products(Integer idProd) {
+        this.idProd = idProd;
+    }
+
     @Override
     public int hashCode() {
         return idProd;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) return false;
+        if (!obj.getClass().getName().equals(this.getClass().getName())) return false;
+        return Objects.equals(idProd, ((Products) obj).idProd);
     }
 }
