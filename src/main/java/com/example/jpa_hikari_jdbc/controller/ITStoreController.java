@@ -30,10 +30,16 @@ public class ITStoreController {
         return productsRepository.findAll();
     }
 
+    @GetMapping("/first_N_products")
+    public Iterable<Products> getFirstNProducts(@RequestParam int N) {
+        return productsRepository.findProductsByIdProdIsBefore(N);
+    }
+
     @GetMapping("/product_max_profit")
     public Iterable<ProductsRepository.CategoryProductProfit> getProductWithMaxProfit() {
         return productsRepository.findProductWithGreatestProfitInCategory();
     }
+
     @GetMapping("/category_profit")
     public Iterable<ProductsRepository.CategoryProfit> getCategoryProfit() {
         return productsRepository.findProfitForEachCategory();
@@ -53,6 +59,7 @@ public class ITStoreController {
     public Iterable<CustomerEmployeeSupplier> getAllCustomerEmployeeSupplier() {
         return customerEmployeeSupplierRepository.findAll();
     }
+
     @GetMapping("/employee")
     public Iterable<String> getEmployeeWithGreatestNrOfInvoices() {
         return customerEmployeeSupplierRepository.findEmployeeWithGreatestNrOfInvoices();
@@ -95,7 +102,7 @@ public class ITStoreController {
 
     @GetMapping("/items_between_dates")
     public Iterable<ItemRepository.ProdQuantity1> getItemsBetweenDates() {
-        return  itemRepository.findItemsBetweenDates();
+        return itemRepository.findItemsBetweenDates();
     }
 
 }
