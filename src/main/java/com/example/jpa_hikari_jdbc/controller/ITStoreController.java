@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 import java.util.Set;
 
 @RestController
@@ -24,6 +25,8 @@ public class ITStoreController {
     InvoiceRepository invoiceRepository;
     @Autowired
     ItemRepository itemRepository;
+    @Autowired
+    List<String> source;
 
     @GetMapping("/products")
     public Iterable<Products> getAllProducts() {
@@ -52,7 +55,7 @@ public class ITStoreController {
 
     @GetMapping("/characteristics_for_product")
     public Iterable<Characteristic> getCharacteristicsForProduct(@RequestParam(name = "productId", required = true) Integer productId) {
-        return characteristicRepository.findCharacteristicByProduct(new Products(productId));
+        return characteristicRepository.findCharacteristicByProduct(productId);
     }
 
     @GetMapping("/customer_employee_suppliers")
@@ -103,6 +106,11 @@ public class ITStoreController {
     @GetMapping("/items_between_dates")
     public Iterable<ItemRepository.ProdQuantity1> getItemsBetweenDates() {
         return itemRepository.findItemsBetweenDates();
+    }
+
+    @GetMapping("/test_controller_only")
+    public Iterable<String> testControllerOnly() {
+        return source;
     }
 
 }
